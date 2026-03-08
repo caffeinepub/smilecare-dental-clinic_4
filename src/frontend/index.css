@@ -1,0 +1,152 @@
+/* Google Fonts — loaded via CDN for Playfair Display and Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.375rem;
+
+    /* SmileCare custom palette — OKLCH values */
+    /* Navy #001F3F → oklch(0.18 0.065 255) */
+    --navy: 0.18 0.065 255;
+    /* Beige #F5F5DC → oklch(0.96 0.025 99) */
+    --beige: 0.96 0.025 99;
+    /* Olive #556B2F → oklch(0.44 0.105 130) */
+    --olive: 0.44 0.105 130;
+    /* Charcoal #2D2D2D → oklch(0.22 0 0) */
+    --charcoal: 0.22 0 0;
+
+    /* Semantic tokens — light mode (default) */
+    --background: 1 0 0;              /* white */
+    --foreground: 0.22 0 0;          /* charcoal */
+    --card: 1 0 0;
+    --card-foreground: 0.22 0 0;
+    --popover: 1 0 0;
+    --popover-foreground: 0.22 0 0;
+    --primary: 0.18 0.065 255;       /* navy */
+    --primary-foreground: 0.98 0 0;  /* near-white */
+    --secondary: 0.96 0.025 99;      /* beige */
+    --secondary-foreground: 0.22 0 0;
+    --muted: 0.96 0.025 99;          /* beige */
+    --muted-foreground: 0.45 0 0;
+    --accent: 0.44 0.105 130;        /* olive */
+    --accent-foreground: 0.98 0 0;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.90 0.008 99;         /* subtle warm border */
+    --input: 0.92 0.008 99;
+    --ring: 0.44 0.105 130;          /* olive ring */
+    --chart-1: 0.646 0.222 41.116;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    --sidebar: 0.18 0.065 255;
+    --sidebar-foreground: 0.98 0 0;
+    --sidebar-primary: 0.44 0.105 130;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.25 0.05 255;
+    --sidebar-accent-foreground: 0.98 0 0;
+    --sidebar-border: 0.28 0.06 255;
+    --sidebar-ring: 0.44 0.105 130;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer utilities {
+  .font-playfair {
+    font-family: 'Playfair Display', serif;
+  }
+  .font-montserrat {
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+/* ── Luxury typography system ── */
+@layer components {
+  /* Display heading: hero h1 — large, open, authoritative */
+  .heading-display {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.08;
+  }
+
+  /* Section heading: h2 — deliberate, spacious */
+  .heading-section {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: -0.005em;
+    line-height: 1.18;
+  }
+
+  /* Card heading: h3 — refined, contained */
+  .heading-card {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    letter-spacing: 0em;
+    line-height: 1.28;
+  }
+
+  /* Eyebrow label: uppercase, tracked, thin rule beneath */
+  .eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6875rem;   /* 11px */
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.625rem;
+  }
+  .eyebrow::after {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.35;
+  }
+
+  /* Luxury card — composed hover */
+  .card-luxury {
+    transition: transform 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                box-shadow 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                border-color 300ms ease;
+  }
+  .card-luxury:hover {
+    transform: translateY(-6px);
+  }
+
+  /* Icon badge — warm, distinguished */
+  .icon-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: oklch(0.96 0.025 99);      /* beige */
+    border: 1px solid oklch(0.44 0.105 130 / 0.18); /* olive/18 */
+    transition: background-color 250ms ease, border-color 250ms ease;
+  }
+  .card-luxury:hover .icon-badge {
+    background-color: oklch(0.44 0.105 130 / 0.08);
+    border-color: oklch(0.44 0.105 130 / 0.35);
+  }
+}
