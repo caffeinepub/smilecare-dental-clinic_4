@@ -297,9 +297,9 @@ function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-olive-light mt-0.5 flex-shrink-0" />
                 <address className="font-montserrat text-sm text-white/80 not-italic leading-relaxed">
-                  14 Vikas Khand, Gomti Nagar,
+                  Sector-H, LDA Colony, Kanpur Road, Ashiyana,
                   <br />
-                  Lucknow, Uttar Pradesh – 226010
+                  Near Ashiyana Chauraha, Lucknow, Uttar Pradesh 226012
                 </address>
               </li>
               <li className="flex items-center gap-3">

@@ -53,11 +53,11 @@ export default function AboutPage() {
               change that.
             </p>
             <p>
-              Established in the heart of Gomti Nagar, Lucknow, our clinic was
-              designed from the ground up as a calm, considered space for
-              treatment. The interior, the pace of appointments, the staff
-              training — all of it is intentional. We want each visit to feel
-              like a consultation, not a transaction.
+              Established in Ashiyana, Lucknow, our clinic was designed from the
+              ground up as a calm, considered space for treatment. The interior,
+              the pace of appointments, the staff training — all of it is
+              intentional. We want each visit to feel like a consultation, not a
+              transaction.
             </p>
             <p>
               Over the years, we have built a community of loyal patients —

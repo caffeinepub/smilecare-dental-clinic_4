@@ -224,9 +224,9 @@ export default function ContactPage() {
                       <strong className="text-navy block mb-0.5">
                         VENUS Oral-Dental Care Clinic
                       </strong>
-                      14 Vikas Khand, Gomti Nagar,
+                      Sector-H, LDA Colony, Kanpur Road, Ashiyana,
                       <br />
-                      Lucknow, Uttar Pradesh – 226010
+                      Near Ashiyana Chauraha, Lucknow, Uttar Pradesh 226012
                     </address>
                   </li>
                   <li className="flex items-center gap-3">
@@ -285,14 +285,14 @@ export default function ContactPage() {
                 data-ocid="contact.map.map_marker"
               >
                 <iframe
-                  src="https://maps.google.com/maps?q=Gomti+Nagar+Lucknow+Uttar+Pradesh&output=embed"
+                  src="https://maps.google.com/maps?q=Ashiyana+Chauraha+Lucknow+Uttar+Pradesh&output=embed"
                   width="100%"
                   height="300"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="VENUS Oral-Dental Care Clinic location — Gomti Nagar, Lucknow"
+                  title="VENUS Oral-Dental Care Clinic location — Ashiyana, Lucknow"
                 />
               </div>
             </div>
