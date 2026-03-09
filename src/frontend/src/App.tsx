@@ -7,9 +7,13 @@ import {
 } from "@tanstack/react-router";
 import Layout from "./components/Layout";
 import AboutPage from "./pages/AboutPage";
+import AdminDashboard from "./pages/AdminDashboard";
 import BookPage from "./pages/BookPage";
 import ContactPage from "./pages/ContactPage";
+import DoctorDashboard from "./pages/DoctorDashboard";
 import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
+import PatientDashboard from "./pages/PatientDashboard";
 import ServicesPage from "./pages/ServicesPage";
 import TestimonialsPage from "./pages/TestimonialsPage";
 
@@ -59,6 +63,30 @@ const contactRoute = createRoute({
   component: ContactPage,
 });
 
+const loginRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/login",
+  component: LoginPage,
+});
+
+const patientRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/patient",
+  component: PatientDashboard,
+});
+
+const doctorRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/doctor",
+  component: DoctorDashboard,
+});
+
+const adminRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/admin",
+  component: AdminDashboard,
+});
+
 const routeTree = rootRoute.addChildren([
   indexRoute,
   aboutRoute,
@@ -66,6 +94,10 @@ const routeTree = rootRoute.addChildren([
   bookRoute,
   testimonialsRoute,
   contactRoute,
+  loginRoute,
+  patientRoute,
+  doctorRoute,
+  adminRoute,
 ]);
 
 const router = createRouter({ routeTree });

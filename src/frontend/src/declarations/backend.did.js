@@ -8,6 +8,11 @@
 
 import { IDL } from '@icp-sdk/core/candid';
 
+export const UserRole = IDL.Variant({
+  'admin' : IDL.Null,
+  'user' : IDL.Null,
+  'guest' : IDL.Null,
+});
 export const TimeOfDay = IDL.Variant({
   'morning' : IDL.Null,
   'evening' : IDL.Null,
@@ -22,9 +27,78 @@ export const Appointment = IDL.Record({
   'phoneNumber' : IDL.Text,
   'serviceNeeded' : IDL.Text,
 });
+export const UserProfile = IDL.Record({
+  'dateOfBirth' : IDL.Text,
+  'name' : IDL.Text,
+  'email' : IDL.Text,
+  'bloodGroup' : IDL.Text,
+  'notes' : IDL.Text,
+  'phone' : IDL.Text,
+  'allergies' : IDL.Vec(IDL.Text),
+});
+export const ProcedureRecord = IDL.Record({
+  'doctorNotes' : IDL.Text,
+  'cost' : IDL.Nat,
+  'date' : IDL.Text,
+  'procedureName' : IDL.Text,
+  'receiptId' : IDL.Nat,
+});
+export const PatientProfile = IDL.Record({
+  'dateOfBirth' : IDL.Text,
+  'name' : IDL.Text,
+  'email' : IDL.Text,
+  'bloodGroup' : IDL.Text,
+  'notes' : IDL.Text,
+  'phone' : IDL.Text,
+  'allergies' : IDL.Vec(IDL.Text),
+});
+export const Role = IDL.Variant({ 'patient' : IDL.Null, 'doctor' : IDL.Null });
 
 export const idlService = IDL.Service({
+  '_initializeAccessControlWithSecret' : IDL.Func([IDL.Text], [], []),
+  'addDoctorPrincipal' : IDL.Func([IDL.Principal], [], []),
+  'addProcedureRecord' : IDL.Func(
+      [IDL.Principal, IDL.Text, IDL.Text, IDL.Nat, IDL.Text],
+      [],
+      [],
+    ),
+  'assignCallerUserRole' : IDL.Func([IDL.Principal, UserRole], [], []),
   'getAllAppointments' : IDL.Func([], [IDL.Vec(Appointment)], ['query']),
+  'getCallerUserProfile' : IDL.Func([], [IDL.Opt(UserProfile)], ['query']),
+  'getCallerUserRole' : IDL.Func([], [UserRole], ['query']),
+  'getMyProcedures' : IDL.Func([], [IDL.Vec(ProcedureRecord)], ['query']),
+  'getMyProfile' : IDL.Func([], [IDL.Opt(PatientProfile)], ['query']),
+  'getMyRole' : IDL.Func([], [IDL.Opt(Role)], ['query']),
+  'getPatientProcedures' : IDL.Func(
+      [IDL.Principal],
+      [IDL.Vec(ProcedureRecord)],
+      ['query'],
+    ),
+  'getPatientProfile' : IDL.Func(
+      [IDL.Principal],
+      [IDL.Opt(PatientProfile)],
+      ['query'],
+    ),
+  'getUserProfile' : IDL.Func(
+      [IDL.Principal],
+      [IDL.Opt(UserProfile)],
+      ['query'],
+    ),
+  'isCallerAdmin' : IDL.Func([], [IDL.Bool], ['query']),
+  'registerPatientProfile' : IDL.Func(
+      [
+        IDL.Text,
+        IDL.Text,
+        IDL.Text,
+        IDL.Text,
+        IDL.Text,
+        IDL.Vec(IDL.Text),
+        IDL.Text,
+      ],
+      [],
+      [],
+    ),
+  'saveCallerUserProfile' : IDL.Func([UserProfile], [], []),
   'submitAppointment' : IDL.Func(
       [
         IDL.Text,
@@ -38,11 +112,29 @@ export const idlService = IDL.Service({
       [],
       [],
     ),
+  'updatePatientProfile' : IDL.Func(
+      [
+        IDL.Text,
+        IDL.Text,
+        IDL.Text,
+        IDL.Text,
+        IDL.Text,
+        IDL.Vec(IDL.Text),
+        IDL.Text,
+      ],
+      [],
+      [],
+    ),
 });
 
 export const idlInitArgs = [];
 
 export const idlFactory = ({ IDL }) => {
+  const UserRole = IDL.Variant({
+    'admin' : IDL.Null,
+    'user' : IDL.Null,
+    'guest' : IDL.Null,
+  });
   const TimeOfDay = IDL.Variant({
     'morning' : IDL.Null,
     'evening' : IDL.Null,
@@ -57,9 +149,78 @@ export const idlFactory = ({ IDL }) => {
     'phoneNumber' : IDL.Text,
     'serviceNeeded' : IDL.Text,
   });
+  const UserProfile = IDL.Record({
+    'dateOfBirth' : IDL.Text,
+    'name' : IDL.Text,
+    'email' : IDL.Text,
+    'bloodGroup' : IDL.Text,
+    'notes' : IDL.Text,
+    'phone' : IDL.Text,
+    'allergies' : IDL.Vec(IDL.Text),
+  });
+  const ProcedureRecord = IDL.Record({
+    'doctorNotes' : IDL.Text,
+    'cost' : IDL.Nat,
+    'date' : IDL.Text,
+    'procedureName' : IDL.Text,
+    'receiptId' : IDL.Nat,
+  });
+  const PatientProfile = IDL.Record({
+    'dateOfBirth' : IDL.Text,
+    'name' : IDL.Text,
+    'email' : IDL.Text,
+    'bloodGroup' : IDL.Text,
+    'notes' : IDL.Text,
+    'phone' : IDL.Text,
+    'allergies' : IDL.Vec(IDL.Text),
+  });
+  const Role = IDL.Variant({ 'patient' : IDL.Null, 'doctor' : IDL.Null });
   
   return IDL.Service({
+    '_initializeAccessControlWithSecret' : IDL.Func([IDL.Text], [], []),
+    'addDoctorPrincipal' : IDL.Func([IDL.Principal], [], []),
+    'addProcedureRecord' : IDL.Func(
+        [IDL.Principal, IDL.Text, IDL.Text, IDL.Nat, IDL.Text],
+        [],
+        [],
+      ),
+    'assignCallerUserRole' : IDL.Func([IDL.Principal, UserRole], [], []),
     'getAllAppointments' : IDL.Func([], [IDL.Vec(Appointment)], ['query']),
+    'getCallerUserProfile' : IDL.Func([], [IDL.Opt(UserProfile)], ['query']),
+    'getCallerUserRole' : IDL.Func([], [UserRole], ['query']),
+    'getMyProcedures' : IDL.Func([], [IDL.Vec(ProcedureRecord)], ['query']),
+    'getMyProfile' : IDL.Func([], [IDL.Opt(PatientProfile)], ['query']),
+    'getMyRole' : IDL.Func([], [IDL.Opt(Role)], ['query']),
+    'getPatientProcedures' : IDL.Func(
+        [IDL.Principal],
+        [IDL.Vec(ProcedureRecord)],
+        ['query'],
+      ),
+    'getPatientProfile' : IDL.Func(
+        [IDL.Principal],
+        [IDL.Opt(PatientProfile)],
+        ['query'],
+      ),
+    'getUserProfile' : IDL.Func(
+        [IDL.Principal],
+        [IDL.Opt(UserProfile)],
+        ['query'],
+      ),
+    'isCallerAdmin' : IDL.Func([], [IDL.Bool], ['query']),
+    'registerPatientProfile' : IDL.Func(
+        [
+          IDL.Text,
+          IDL.Text,
+          IDL.Text,
+          IDL.Text,
+          IDL.Text,
+          IDL.Vec(IDL.Text),
+          IDL.Text,
+        ],
+        [],
+        [],
+      ),
+    'saveCallerUserProfile' : IDL.Func([UserProfile], [], []),
     'submitAppointment' : IDL.Func(
         [
           IDL.Text,
@@ -69,6 +230,19 @@ export const idlFactory = ({ IDL }) => {
           TimeOfDay,
           IDL.Text,
           IDL.Opt(IDL.Text),
+        ],
+        [],
+        [],
+      ),
+    'updatePatientProfile' : IDL.Func(
+        [
+          IDL.Text,
+          IDL.Text,
+          IDL.Text,
+          IDL.Text,
+          IDL.Text,
+          IDL.Vec(IDL.Text),
+          IDL.Text,
         ],
         [],
         [],

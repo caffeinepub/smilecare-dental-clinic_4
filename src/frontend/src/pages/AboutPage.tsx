@@ -46,15 +46,13 @@ export default function AboutPage() {
           </h2>
           <div className="space-y-6 font-montserrat text-sm sm:text-[0.9375rem] text-charcoal leading-[1.85]">
             <p>
-              {/* PLACEHOLDER: Update clinic founding story paragraph 1 */}
-              SmileCare Dental Clinic was founded with a single conviction: that
-              dental care in India can — and should — be both clinically
+              VENUS Oral-Dental Care Clinic was founded with a single
+              conviction: that dental care can — and should — be both clinically
               excellent and genuinely compassionate. Too often, patients leave
               appointments feeling rushed, uncertain, or anxious. We set out to
               change that.
             </p>
             <p>
-              {/* PLACEHOLDER: Update clinic founding story paragraph 2 */}
               Established in the heart of Gomti Nagar, Lucknow, our clinic was
               designed from the ground up as a calm, considered space for
               treatment. The interior, the pace of appointments, the staff
@@ -62,12 +60,20 @@ export default function AboutPage() {
               like a consultation, not a transaction.
             </p>
             <p>
-              {/* PLACEHOLDER: Update clinic founding story paragraph 3 */}
               Over the years, we have built a community of loyal patients —
               families who trust us with their children's first checkups and
               grandparents returning for implants. That trust is our most
               important credential.
             </p>
+          </div>
+          {/* Clinic waiting area photo */}
+          <div className="mt-10 rounded-lg overflow-hidden shadow-card">
+            <img
+              src="/assets/uploads/image-1.png"
+              alt="VENUS Oral-Dental Care Clinic interior"
+              className="w-full object-cover"
+              style={{ maxHeight: "320px" }}
+            />
           </div>
         </div>
       </section>
@@ -82,11 +88,10 @@ export default function AboutPage() {
               <div
                 className="w-36 h-36 rounded-full flex items-center justify-center text-white font-playfair text-5xl font-semibold mb-6 ring-4 ring-white ring-offset-4 ring-offset-beige shadow-card-xl"
                 style={{ background: "oklch(0.18 0.065 255)" }}
-                aria-label="Dr. Priya Sharma portrait placeholder"
+                aria-label="Doctor portrait placeholder"
               >
-                PS
+                DR
               </div>
-              {/* PLACEHOLDER: Replace the div above with an <img> tag when a real headshot is available */}
               <div className="text-center lg:text-left">
                 <div
                   className="inline-block font-montserrat text-xs font-semibold tracking-[0.12em] uppercase px-3 py-1 rounded-full mb-4"
@@ -98,7 +103,7 @@ export default function AboutPage() {
                   Lead Dentist &amp; Founder
                 </div>
                 <p className="font-montserrat text-sm text-charcoal-light">
-                  BDS — Dental Science, KGMU Lucknow
+                  VENUS Oral-Dental Care Clinic
                 </p>
               </div>
             </div>
@@ -106,30 +111,25 @@ export default function AboutPage() {
             {/* Bio side */}
             <div>
               <h2 className="heading-section text-3xl lg:text-4xl text-navy mb-7">
-                {/* PLACEHOLDER: Update doctor name */}
-                Dr. Priya Sharma
+                Our Expert Team
               </h2>
               <div className="space-y-5 font-montserrat text-sm sm:text-[0.9375rem] text-charcoal leading-[1.85]">
                 <p>
-                  {/* PLACEHOLDER: Update doctor bio paragraph 1 */}
-                  Dr. Priya Sharma holds a Bachelor of Dental Surgery (BDS) from
-                  King George's Medical University, Lucknow, one of India's
-                  premier dental institutions. She completed advanced training
-                  in restorative and cosmetic dentistry, with special focus on
-                  aesthetic rehabilitation.
+                  Our dental professionals hold advanced degrees and training
+                  from premier dental institutions. The team specializes in
+                  restorative and cosmetic dentistry, with special focus on
+                  aesthetic rehabilitation and patient comfort.
                 </p>
                 <p>
-                  {/* PLACEHOLDER: Update doctor bio paragraph 2 */}
-                  With over 10 years of clinical practice, Dr. Sharma has
-                  treated thousands of patients ranging from routine cleanings
-                  to complex full-mouth restorations. She is known for her calm
+                  With years of clinical practice, our team has treated
+                  thousands of patients ranging from routine cleanings to
+                  complex full-mouth restorations. We are known for a calm
                   chairside manner and thorough, patient-led consultations.
                 </p>
                 <p>
-                  {/* PLACEHOLDER: Update doctor bio paragraph 3 */}
-                  She regularly attends continuing education programs to stay
-                  current with advances in implantology, aligner therapy, and
-                  minimally invasive techniques — ensuring that SmileCare's
+                  The VENUS team regularly attends continuing education programs
+                  to stay current with advances in implantology, aligner
+                  therapy, and minimally invasive techniques — ensuring that our
                   patients always receive contemporary care.
                 </p>
               </div>
@@ -143,11 +143,9 @@ export default function AboutPage() {
                 ].map((stat) => (
                   <div key={stat.label} className="text-center">
                     <div className="font-playfair text-2xl font-semibold text-navy">
-                      {/* PLACEHOLDER: Update stat value */}
                       {stat.value}
                     </div>
                     <div className="font-montserrat text-xs text-charcoal-light mt-1 leading-tight">
-                      {/* PLACEHOLDER: Update stat label */}
                       {stat.label}
                     </div>
                   </div>
@@ -181,11 +179,9 @@ export default function AboutPage() {
                     <Icon className="w-5 h-5 text-olive" />
                   </span>
                   <h3 className="heading-card text-lg text-navy mb-3">
-                    {/* PLACEHOLDER: Update core value title */}
                     {val.title}
                   </h3>
                   <p className="font-montserrat text-sm text-charcoal leading-[1.8]">
-                    {/* PLACEHOLDER: Update core value description */}
                     {val.description}
                   </p>
                 </div>

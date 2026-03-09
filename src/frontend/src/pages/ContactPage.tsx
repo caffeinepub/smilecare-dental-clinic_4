@@ -62,7 +62,6 @@ export default function ContactPage() {
     e.preventDefault();
     if (!validate()) return;
     setSubmitting(true);
-    // Simulate async send — no backend call for contact form
     await new Promise((res) => setTimeout(res, 900));
     setSubmitting(false);
     setSubmitted(true);
@@ -167,7 +166,7 @@ export default function ContactPage() {
                       type="tel"
                       value={form.phone}
                       onChange={handleChange}
-                      placeholder="+91 98765 43210"
+                      placeholder="+91 96166 04805"
                       autoComplete="tel"
                       className={inputClass}
                       data-ocid="contact.phone.input"
@@ -222,9 +221,8 @@ export default function ContactPage() {
                   <li className="flex items-start gap-3">
                     <MapPin className="w-5 h-5 text-olive mt-0.5 flex-shrink-0" />
                     <address className="font-montserrat text-sm text-charcoal not-italic leading-relaxed">
-                      {/* PLACEHOLDER: Update clinic address */}
                       <strong className="text-navy block mb-0.5">
-                        SmileCare Dental Clinic
+                        VENUS Oral-Dental Care Clinic
                       </strong>
                       14 Vikas Khand, Gomti Nagar,
                       <br />
@@ -234,27 +232,45 @@ export default function ContactPage() {
                   <li className="flex items-center gap-3">
                     <Phone className="w-5 h-5 text-olive flex-shrink-0" />
                     <a
-                      href="tel:+919876543210"
+                      href="tel:+919616604805"
                       className="font-montserrat text-sm text-charcoal hover:text-navy transition-colors"
                     >
-                      {/* PLACEHOLDER: Update phone number */}
-                      +91 98765 43210
+                      +91 96166 04805
+                    </a>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <a
+                      href="https://wa.me/919616604805"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 font-montserrat text-sm font-semibold px-5 py-2.5 rounded bg-[#25D366] text-white hover:bg-[#1ebe5d] transition-colors"
+                      data-ocid="contact.whatsapp.button"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        className="w-4 h-4 fill-current"
+                        xmlns="http://www.w3.org/2000/svg"
+                        role="img"
+                        aria-label="WhatsApp"
+                      >
+                        <title>WhatsApp</title>
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                      </svg>
+                      Chat on WhatsApp
                     </a>
                   </li>
                   <li className="flex items-center gap-3">
                     <Mail className="w-5 h-5 text-olive flex-shrink-0" />
                     <a
-                      href="mailto:info@smilecaredental.com"
+                      href="mailto:info@venusdental.com"
                       className="font-montserrat text-sm text-charcoal hover:text-navy transition-colors"
                     >
-                      {/* PLACEHOLDER: Update email address */}
-                      info@smilecaredental.com
+                      info@venusdental.com
                     </a>
                   </li>
                   <li className="flex items-start gap-3">
                     <Clock className="w-5 h-5 text-olive mt-0.5 flex-shrink-0" />
                     <div className="font-montserrat text-sm text-charcoal leading-relaxed">
-                      {/* PLACEHOLDER: Update clinic hours */}
                       Mon – Sat: 9:00 AM – 7:00 PM
                       <br />
                       Sunday: 10:00 AM – 2:00 PM
@@ -268,7 +284,6 @@ export default function ContactPage() {
                 className="rounded-lg overflow-hidden border border-[oklch(0.90_0.008_99)] shadow-card"
                 data-ocid="contact.map.map_marker"
               >
-                {/* PLACEHOLDER: Replace with a more precise Maps embed URL if needed */}
                 <iframe
                   src="https://maps.google.com/maps?q=Gomti+Nagar+Lucknow+Uttar+Pradesh&output=embed"
                   width="100%"
@@ -277,7 +292,7 @@ export default function ContactPage() {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="SmileCare Dental Clinic location — Gomti Nagar, Lucknow"
+                  title="VENUS Oral-Dental Care Clinic location — Gomti Nagar, Lucknow"
                 />
               </div>
             </div>

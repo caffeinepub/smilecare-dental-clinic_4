@@ -1,34 +1,41 @@
-# SmileCare Dental Clinic
+# VENUS Oral Dental Care Clinic
 
 ## Current State
-New project — no existing pages or backend logic.
+- App is named SmileCare Dental Clinic throughout all pages and components
+- Contact number is placeholder +91 98765 43210
+- Footer has "Built with caffeine.ai" credit
+- No admin dashboard exists
+- Layout.tsx has NavBar and Footer with old clinic name
+- ContactPage.tsx has address block with old clinic name and phone
+- HomePage.tsx has old clinic name in hero and sections
+- Backend exposes `getAllAppointments()` for fetching all appointment submissions
+- Logo image uploaded: /assets/uploads/IMG_5920-2.PNG (VENUS logo)
+- Clinic photo uploaded: /assets/uploads/image-1.png (waiting area)
 
 ## Requested Changes (Diff)
 
 ### Add
-- Multi-page React app with React Router (6 pages: Home, About, Services, Book Appointment, Testimonials, Contact)
-- Sticky navbar with logo, nav links, and olive green CTA button; hamburger menu on mobile
-- Home page: hero section with gradient background, clinic intro, doctor teaser card, 3 service snapshot cards, footer
-- About page: clinic story, doctor bio (Dr. Priya Sharma, BDS) with initials placeholder, core values (3 cards)
-- Services page: 6-card grid with icons, names, and descriptions (Routine Checkups, Implants, Whitening, Orthodontics, Root Canal, Cosmetic)
-- Book Appointment page: validated frontend form (name, phone, email, date, time, service, message) with olive submit button and success state
-- Testimonials page: 6 patient review cards with star ratings and placeholder quotes
-- Contact page: two-column layout — contact form with success state + address block + Google Maps iframe (Gomti Nagar, Lucknow)
-- Footer on all pages: address, phone, email, copyright
-- Google Fonts: Playfair Display (headings) and Montserrat (body/nav/buttons)
+- Admin dashboard page (/admin) accessible only to logged-in admin users — shows table of all appointment submissions from `getAllAppointments()` backend call
+- "Chat on WhatsApp" button linking to `https://wa.me/919616604805` in the contact page and footer
+- VENUS logo image in navbar (use /assets/uploads/IMG_5920-2.PNG)
+- Clinic photo (waiting area) on the homepage hero or about section
 
 ### Modify
-- None (new project)
+- Clinic name everywhere: "SmileCare Dental Clinic" → "VENUS Oral Dental Care Clinic"
+- Phone number everywhere: placeholder → 09616604805 (formatted as +91 96166 04805)
+- Phone href: tel:+919616604805
+- Remove "Built with caffeine.ai" footer credit entirely
+- Navbar logo: replace text-only logo with VENUS logo image (/assets/uploads/IMG_5920-2.PNG)
+- Add Admin link in navbar for admin users (role check via `isCallerAdmin()`)
 
 ### Remove
-- None (new project)
+- "Built with caffeine.ai" branding from footer
+- Old placeholder phone number +91 98765 43210
 
 ## Implementation Plan
-1. No backend needed — purely frontend with React Router, form state, and validation
-2. Configure Tailwind with custom colors (navy #001F3F, beige #F5F5DC, olive #556B2F) and Google Fonts
-3. Create shared Layout component with sticky Navbar and Footer
-4. Build each of the 6 page components with placeholder content labeled in comments
-5. Wire React Router routes in App.tsx
-6. Ensure full mobile responsiveness (hamburger nav, responsive grids)
-7. Add gentle hover transitions on cards; no loud animations
-8. Embed Google Maps iframe for Gomti Nagar, Lucknow on Contact page
+1. Update Layout.tsx: replace clinic name with VENUS branding, use logo image in navbar, update phone to 09616604805, add WhatsApp button in footer, remove caffeine.ai footer credit, add Admin nav link for admins
+2. Update ContactPage.tsx: clinic name, phone number, add WhatsApp button
+3. Update HomePage.tsx: clinic name in hero, sections, doctor teaser
+4. Update AboutPage.tsx: clinic name in story paragraphs, add waiting area clinic photo
+5. Create AdminDashboard.tsx: protected page showing appointments table (uses `getAllAppointments()`, `isCallerAdmin()`), redirect non-admins
+6. Add /admin route to App.tsx

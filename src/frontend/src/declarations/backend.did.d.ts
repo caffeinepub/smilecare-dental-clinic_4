@@ -19,13 +19,68 @@ export interface Appointment {
   'phoneNumber' : string,
   'serviceNeeded' : string,
 }
+export interface PatientProfile {
+  'dateOfBirth' : string,
+  'name' : string,
+  'email' : string,
+  'bloodGroup' : string,
+  'notes' : string,
+  'phone' : string,
+  'allergies' : Array<string>,
+}
+export interface ProcedureRecord {
+  'doctorNotes' : string,
+  'cost' : bigint,
+  'date' : string,
+  'procedureName' : string,
+  'receiptId' : bigint,
+}
+export type Role = { 'patient' : null } |
+  { 'doctor' : null };
 export type TimeOfDay = { 'morning' : null } |
   { 'evening' : null } |
   { 'afternoon' : null };
+export interface UserProfile {
+  'dateOfBirth' : string,
+  'name' : string,
+  'email' : string,
+  'bloodGroup' : string,
+  'notes' : string,
+  'phone' : string,
+  'allergies' : Array<string>,
+}
+export type UserRole = { 'admin' : null } |
+  { 'user' : null } |
+  { 'guest' : null };
 export interface _SERVICE {
+  '_initializeAccessControlWithSecret' : ActorMethod<[string], undefined>,
+  'addDoctorPrincipal' : ActorMethod<[Principal], undefined>,
+  'addProcedureRecord' : ActorMethod<
+    [Principal, string, string, bigint, string],
+    undefined
+  >,
+  'assignCallerUserRole' : ActorMethod<[Principal, UserRole], undefined>,
   'getAllAppointments' : ActorMethod<[], Array<Appointment>>,
+  'getCallerUserProfile' : ActorMethod<[], [] | [UserProfile]>,
+  'getCallerUserRole' : ActorMethod<[], UserRole>,
+  'getMyProcedures' : ActorMethod<[], Array<ProcedureRecord>>,
+  'getMyProfile' : ActorMethod<[], [] | [PatientProfile]>,
+  'getMyRole' : ActorMethod<[], [] | [Role]>,
+  'getPatientProcedures' : ActorMethod<[Principal], Array<ProcedureRecord>>,
+  'getPatientProfile' : ActorMethod<[Principal], [] | [PatientProfile]>,
+  'getUserProfile' : ActorMethod<[Principal], [] | [UserProfile]>,
+  'isCallerAdmin' : ActorMethod<[], boolean>,
+  'registerPatientProfile' : ActorMethod<
+    [string, string, string, string, string, Array<string>, string],
+    undefined
+  >,
+  'saveCallerUserProfile' : ActorMethod<[UserProfile], undefined>,
   'submitAppointment' : ActorMethod<
     [string, string, string, string, TimeOfDay, string, [] | [string]],
+    undefined
+  >,
+  'updatePatientProfile' : ActorMethod<
+    [string, string, string, string, string, Array<string>, string],
     undefined
   >,
 }

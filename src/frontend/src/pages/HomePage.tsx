@@ -55,22 +55,19 @@ export default function HomePage() {
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center py-28 lg:py-36">
           {/* Eyebrow */}
           <span className="eyebrow text-white/55 mb-8">
-            {/* PLACEHOLDER: Update clinic tagline/eyebrow */}
-            Lucknow's Trusted Private Practice
+            Trusted Private Dental Practice
           </span>
 
           {/* Headline */}
           <h1 className="heading-display text-4xl sm:text-5xl lg:text-[3.75rem] xl:text-[4.25rem] text-white mb-7 animate-fade-up max-w-3xl">
-            {/* PLACEHOLDER: Update hero headline */}
             Expert Gentle Dental Care{" "}
-            <em className="italic text-white/75">in Lucknow</em>
+            <em className="italic text-white/75">at VENUS</em>
           </h1>
 
           {/* Subheadline */}
           <p className="font-montserrat text-base sm:text-lg text-white/70 max-w-lg leading-[1.75] mb-11 font-light tracking-wide">
-            {/* PLACEHOLDER: Update hero subheadline */}
             Personalized, precise, and compassionate dental care for you and
-            your family.
+            your family at VENUS Oral-Dental Care Clinic.
           </p>
 
           {/* CTAs */}
@@ -99,31 +96,35 @@ export default function HomePage() {
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="eyebrow text-olive mb-6">Our Philosophy</span>
           <h2 className="heading-section text-3xl lg:text-4xl text-navy mt-6 mb-10">
-            About SmileCare
+            About VENUS
           </h2>
           <div className="space-y-6 font-montserrat text-sm sm:text-[0.9375rem] text-charcoal leading-[1.85]">
             <p>
-              {/* PLACEHOLDER: Update clinic philosophy paragraph 1 */}
-              At SmileCare Dental Clinic, we believe that every patient deserves
-              individualized attention. From the moment you walk in, our care is
-              built around <em>you</em> — your comfort, your goals, and your
-              timeline. We take time to listen before we treat.
+              At VENUS Oral-Dental Care Clinic, we believe that every patient
+              deserves individualized attention. From the moment you walk in,
+              our care is built around <em>you</em> — your comfort, your goals,
+              and your timeline. We take time to listen before we treat.
             </p>
             <p>
-              {/* PLACEHOLDER: Update clinic philosophy paragraph 2 */}
               Our clinic is equipped with contemporary digital imaging,
               sterilization protocols that exceed standard requirements, and
               treatment chairs designed for extended comfort. Technology in
               service of precision — that is our standard.
             </p>
             <p>
-              {/* PLACEHOLDER: Update clinic philosophy paragraph 3 */}
               Hygiene is non-negotiable. Our protocols follow the strictest
               infection-control guidelines so that every visit is as safe as it
               is effective. We treat families, professionals, seniors, and
               children with equal care and equal respect.
             </p>
           </div>
+          {/* Clinic waiting area photo */}
+          <img
+            src="/assets/uploads/image-1.png"
+            alt="VENUS Oral-Dental Care Clinic waiting area"
+            className="rounded-lg shadow-card w-full mt-10 object-cover"
+            style={{ maxHeight: "320px" }}
+          />
         </div>
       </section>
 
@@ -135,25 +136,21 @@ export default function HomePage() {
             <div
               className="w-24 h-24 rounded-full flex items-center justify-center text-white font-playfair text-2xl font-semibold mb-6 ring-4 ring-white ring-offset-4 ring-offset-beige shadow-card-xl"
               style={{ background: "oklch(0.18 0.065 255)" }}
-              aria-label="Dr. Priya Sharma initials"
+              aria-label="Doctor initials"
             >
-              PS
+              DR
             </div>
 
             {/* Name & credentials */}
             <h3 className="heading-card text-xl text-navy mb-1">
-              {/* PLACEHOLDER: Update doctor name and credentials */}
-              Dr. Priya Sharma, BDS
+              Our Expert Team
             </h3>
             <p className="font-montserrat text-xs font-medium tracking-[0.12em] uppercase text-olive mb-4">
-              {/* PLACEHOLDER: Update doctor title */}
-              Lead Dentist &amp; Founder
+              VENUS Oral-Dental Care Clinic
             </p>
             <p className="font-montserrat text-sm text-charcoal leading-relaxed max-w-sm mb-6">
-              {/* PLACEHOLDER: Update doctor bio sentence */}
-              With over 10 years of experience in restorative and cosmetic
-              dentistry, Dr. Sharma brings precision and warmth to every
-              consultation.
+              Our experienced dental professionals bring precision and warmth to
+              every consultation, ensuring you receive the best possible care.
             </p>
             <Link
               to="/about"
@@ -194,11 +191,9 @@ export default function HomePage() {
                     <Icon className="w-5 h-5 text-olive" />
                   </span>
                   <h3 className="heading-card text-lg text-navy mb-3">
-                    {/* PLACEHOLDER: Update service name */}
                     {svc.name}
                   </h3>
                   <p className="font-montserrat text-sm text-charcoal leading-[1.8]">
-                    {/* PLACEHOLDER: Update service description */}
                     {svc.description}
                   </p>
                 </div>
