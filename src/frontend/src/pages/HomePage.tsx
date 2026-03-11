@@ -60,7 +60,7 @@ export default function HomePage() {
 
           {/* Headline */}
           <h1 className="heading-display text-4xl sm:text-5xl lg:text-[3.75rem] xl:text-[4.25rem] text-white mb-7 animate-fade-up max-w-3xl">
-            Expert Gentle Dental Care{" "}
+            Expert Dental Care{" "}
             <em className="italic text-white/75">at VENUS</em>
           </h1>
 

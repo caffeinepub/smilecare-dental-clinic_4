@@ -68,12 +68,20 @@ actor {
   let accessControlState = AccessControl.initState();
   include MixinAuthorization(accessControlState);
 
+  // Pre-seed the owner principal as admin
+  let ownerPrincipal : Principal = Principal.fromText("xhfbc-d4xif-bgcay-wfyny-bw3tg-2bwq5-ywdb4-g27jx-hnrks-lobxi-5ae");
+  accessControlState.userRoles.add(ownerPrincipal, #admin);
+  accessControlState.adminAssigned := true;
+
   var nextReceiptId = 1;
 
   let appointments = List.empty<Appointment>();
   let patientProfiles = Map.empty<Principal, PatientProfile>();
   let procedures = Map.empty<Principal, List.List<ProcedureRecord>>();
+
+  // Pre-seed owner as doctor
   let registeredDoctors = Map.empty<Principal, ()>();
+  registeredDoctors.add(ownerPrincipal, ());
 
   // Admin-only: Register a doctor principal
   public shared ({ caller }) func addDoctorPrincipal(doctorPrincipal : Principal) : async () {

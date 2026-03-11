@@ -283,8 +283,7 @@ function Footer() {
               VENUS Oral-Dental Care Clinic
             </h3>
             <p className="font-montserrat text-sm text-white/70 leading-relaxed">
-              Delivering expert, gentle dental care with precision and
-              compassion.
+              Delivering expert dental care with precision and compassion.
             </p>
           </div>
 

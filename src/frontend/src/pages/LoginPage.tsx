@@ -2,6 +2,8 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
 import {
   AlertCircle,
+  Check,
+  ClipboardCopy,
   Loader2,
   ShieldCheck,
   Stethoscope,
@@ -60,6 +62,9 @@ export default function LoginPage() {
   const [errors, setErrors] = useState<
     Partial<Record<keyof RegistrationForm, string>>
   >({});
+  const [copied, setCopied] = useState(false);
+
+  const principalId = identity?.getPrincipal().toText();
 
   // After login succeeds with an identity, check role
   useEffect(() => {
@@ -127,6 +132,14 @@ export default function LoginPage() {
     e.preventDefault();
     if (!validateReg()) return;
     registerMutation.mutate(form);
+  }
+
+  function handleCopy() {
+    if (!principalId) return;
+    navigator.clipboard.writeText(principalId).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
   }
 
   const inputClass =
@@ -353,12 +366,48 @@ export default function LoginPage() {
         <div className="w-full max-w-md mx-auto px-4">
           <div className="text-center mb-8">
             <h2 className="heading-section text-2xl text-navy mb-2">
-              Welcome to SmileCare
+              Welcome to VENUS Oral-Dental Care
             </h2>
             <p className="font-montserrat text-sm text-charcoal-light">
               How would you like to access the portal?
             </p>
           </div>
+
+          {/* Principal ID box */}
+          {principalId && (
+            <div className="mb-6 p-4 bg-navy/5 border border-navy/20 rounded-lg">
+              <p className="font-montserrat text-xs font-semibold tracking-[0.08em] uppercase text-navy mb-2">
+                Your Principal ID
+              </p>
+              <div className="flex items-center gap-2">
+                <code
+                  className="flex-1 font-mono text-xs text-charcoal bg-white border border-[oklch(0.90_0.008_99)] rounded px-3 py-2 break-all"
+                  data-ocid="login.principal.panel"
+                >
+                  {principalId}
+                </code>
+                <button
+                  type="button"
+                  onClick={handleCopy}
+                  className="flex-shrink-0 flex items-center gap-1 font-montserrat text-xs font-semibold px-3 py-2 rounded bg-navy text-white hover:bg-navy-light transition-colors"
+                  data-ocid="login.principal.button"
+                >
+                  {copied ? (
+                    <>
+                      <Check className="w-3.5 h-3.5" /> Copied!
+                    </>
+                  ) : (
+                    <>
+                      <ClipboardCopy className="w-3.5 h-3.5" /> Copy
+                    </>
+                  )}
+                </button>
+              </div>
+              <p className="font-montserrat text-xs text-charcoal-light mt-2">
+                Share this ID with the clinic admin to get doctor access.
+              </p>
+            </div>
+          )}
 
           <div className="grid grid-cols-1 gap-4">
             {/* Patient option */}
@@ -392,8 +441,8 @@ export default function LoginPage() {
                   I'm a Doctor
                 </p>
                 <p className="font-montserrat text-xs text-charcoal-light mt-1 leading-relaxed">
-                  Doctor access is granted by the clinic administrator. Please
-                  contact the clinic to set up your account.
+                  Doctor access is granted by the clinic administrator. Copy
+                  your Principal ID above and share it with the admin.
                 </p>
               </div>
             </div>
@@ -420,8 +469,8 @@ export default function LoginPage() {
             Patient & Doctor Portal
           </h1>
           <p className="font-montserrat text-sm text-charcoal-light leading-relaxed mb-8">
-            Sign in securely to access your SmileCare records, appointments, and
-            profile.
+            Sign in securely to access your VENUS Oral-Dental Care records,
+            appointments, and profile.
           </p>
 
           {/* Login button */}
